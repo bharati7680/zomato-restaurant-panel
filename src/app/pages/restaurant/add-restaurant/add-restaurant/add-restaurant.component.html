@@ -1,106 +1,81 @@
-<form class="row g-3 needs-validation was-validated" novalidate="">
+<form [formGroup]="restaurantForm" (ngSubmit)="submitForm()">
+  <div class="row">
     <div class="col-md-4">
-      <label for="validationCustom01" class="form-label"
-        >Restaurant Name</label
-      >
-      <input
-        type="text"
-        class="form-control"
-        id="validationCustom01"
-        value=""
-        required=""
-      />
-      <div class="valid-feedback">Please enter restaurant name</div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationCustom02" class="form-label">Contact</label>
-      <input
-        type="text"
-        class="form-control"
-        id="validationCustom02"
-        value=""
-        required=""
-      />
-      <div class="valid-feedback">Please enter contact</div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationCustomUsername" class="form-label">Email</label>
-      <div class="input-group has-validation">
-        <input
-          type="email"
-          class="form-control"
-          id="validationCustomUsername"
-          aria-describedby="inputGroupPrepend"
-          required=""
-        />
-        <div class="invalid-feedback">Please enter email.</div>
-      </div>
-    </div>
-    <div class="col-mb-5">
-      <label for="validationTextarea" class="form-label">Address</label>
-      <textarea
-        class="form-control"
-        id="validationTextarea"
-        placeholder="Required example textarea"
-        required
-      ></textarea>
-      <div class="invalid-feedback">Please enter address.</div>
-    </div>
-    <div class="col-md-4">
-      <label for="validationCustomUsername" class="form-label"
-        >Location</label
-      >
-      <div class="input-group has-validation">
-        <input
-          type="email"
-          class="form-control"
-          id="validationCustomUsername"
-          aria-describedby="inputGroupPrepend"
-          required=""
-        />
-        <div class="invalid-feedback">This field is required.</div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" class="form-control" formControlName="name">
+        <div *ngIf="restaurantForm.controls['name'].invalid && restaurantForm.controls['name'].touched"
+          class="text-danger">
+          Name is required.
+        </div>
       </div>
     </div>
     <div class="col-md-4">
-      <label for="validationCustom04" class="form-label">Opening Day</label>
-      <select class="form-select" id="validationCustom04" required="">
-        <option selected="" disabled="" value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-feedback">Please select days</div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+        <div *ngIf="restaurantForm.controls['email'].invalid && restaurantForm.controls['email'].touched"
+          class="text-danger">
+          Email is required and must be a valid email address.
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
-      <label for="validationCustom04" class="form-label">Cuisine</label>
-      <select class="form-select" id="validationCustom04" required="">
-        <option selected="" disabled="" value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <div class="invalid-feedback">This field is required</div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" class="form-control" formControlName="contact">
+        <div *ngIf="restaurantForm.controls['contact'].invalid && restaurantForm.controls['contact'].touched"
+          class="text-danger">
+          Contact is required.
+        </div>
+      </div>
     </div>
-    <div class="col-md-4">
-      <label for="validationCustom05" class="form-label"
-        >Restaurant Images</label
-      >
-      <input
-        type="text"
-        class="form-control"
-        id="validationCustom05"
-        required=""
-      />
-      <div class="invalid-feedback">This field is required</div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div style="height: 300px;" 
+        leaflet [leafletOptions]="options" 
+        [leafletLayersControl]="layersControl"
+        [leafletLayers]="layers" 
+        (leafletClick)="onMapClick($event)">
+      </div>
     </div>
-    <div class="col-md-4">
-      <label for="validationCustom05" class="form-label">Food Images</label>
-      <input
-        type="text"
-        class="form-control"
-        id="validationCustom05"
-        required=""
-      />
-      <div class="invalid-feedback">This field is required</div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" class="form-control" formControlName="latitude">
+        <div *ngIf="restaurantForm.controls['latitude'].invalid && restaurantForm.controls['latitude'].touched"
+          class="text-danger">
+          Latitude is required.
+        </div>
+      </div>
     </div>
-    <div class="col-12">
-      <button class="btn btn-primary" type="submit">Submit</button>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" class="form-control" formControlName="longitude">
+        <div *ngIf="restaurantForm.controls['longitude'].invalid && restaurantForm.controls['longitude'].touched"
+          class="text-danger">
+          Longitude is required.
+        </div>
+      </div>
     </div>
-  </form>
-
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" class="form-control" formControlName="address"></textarea>
+        <div *ngIf="restaurantForm.controls['address'].invalid && restaurantForm.controls['address'].touched"
+          class="text-danger">
+          Address is required.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12 d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>

@@ -13,14 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { AddRestaurantComponent } from './pages/restaurant/add-restaurant/add-restaurant/add-restaurant.component';
 
 registerLocaleData(hi);
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AddRestaurantComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

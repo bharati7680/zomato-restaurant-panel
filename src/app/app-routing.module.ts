@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   // { path: '', pathMatch: 'full', redirectTo: '/welcome ' },
   // { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
-  { path: 'add-restaurant', loadChildren: () => import('./pages/restaurant/restaurant.module').then(m => m.RestaurantModule) }
+  { path: 'restaurant', loadChildren: () => import('./pages/restaurant/restaurant.module').then(m => m.RestaurantModule) }
 ];
 
 @NgModule({

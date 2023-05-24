@@ -3,21 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { RestaurantRoutingModule } from './restaurant-routing.module';
 import { AddRestaurantComponent } from './add-restaurant/add-restaurant/add-restaurant.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
 
 
 @NgModule({
   declarations: [
-    AddRestaurantComponent
+    AddRestaurantComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
     RestaurantRoutingModule,
     ReactiveFormsModule,
     NgSelectModule,
-    LeafletModule
+    LeafletModule,
+    FormsModule
   ]
 })
 export class RestaurantModule { }

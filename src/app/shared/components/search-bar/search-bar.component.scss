@@ -1,0 +1,19 @@
+.search-container {
+    position: relative;
+}
+
+.suggestions {
+    border: 1px solid gray;
+    position: absolute;
+    top: calc(100% + 5px);
+    z-index: 10000;
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    li {
+        cursor: pointer;
+    }
+}

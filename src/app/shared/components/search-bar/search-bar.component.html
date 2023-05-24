@@ -1,0 +1,6 @@
+<div class="search-container">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" (input)="search()">
+    <ul class="suggestions" *ngIf="showSuggestions">
+        <li *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">{{ suggestion }}</li>
+    </ul>
+</div>

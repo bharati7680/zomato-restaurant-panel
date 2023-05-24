@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
+import { MapComponent } from 'src/app/shared/components/map/map.component';
 
 
 @NgModule({
   declarations: [
     AddRestaurantComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,

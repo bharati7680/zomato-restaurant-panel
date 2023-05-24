@@ -39,12 +39,7 @@
   </div>
   <div class="row mt-4">
     <div class="col-md-12">
-      <div style="height: 300px;" 
-        leaflet [leafletOptions]="options" 
-        [leafletLayersControl]="layersControl"
-        [leafletLayers]="layers" 
-        (leafletClick)="onMapClick($event)">
-      </div>
+      <app-map [markerPosition]="{lat: restaurantForm.get('latitude')?.value, lng: restaurantForm.get('longitude')?.value}" (onMapClick)="onMapClick($event)"></app-map>
     </div>
   </div>
   <div class="row mt-4">
